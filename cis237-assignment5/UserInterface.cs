@@ -166,11 +166,12 @@ namespace cis237_assignment5
             Console.WriteLine();
             Console.WriteLine("What would you like to do?");
             Console.WriteLine();
-            Console.WriteLine("1. Load Wine List From CSV");
-            Console.WriteLine("2. Print The Entire List Of Items");
-            Console.WriteLine("3. Search For An Item");
-            Console.WriteLine("4. Add New Item To The List");
-            Console.WriteLine("5. Exit Program");
+            Console.WriteLine("1. Print list of beverages");
+            Console.WriteLine("2. Search beverage by primary ID");
+            Console.WriteLine("3. Add new beverage");
+            Console.WriteLine("4. Update beverage");
+            Console.WriteLine("5. Delete beverage");
+            Console.WriteLine("6. Delete beverage");
         }
 
         // Display the Prompt
