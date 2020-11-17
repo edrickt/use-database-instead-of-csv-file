@@ -31,24 +31,26 @@ namespace cis237_assignment5
             // This is the 'primer' run of displaying and getting.
             int choice = userInterface.DisplayMenuAndGetResponse();
 
+            BeverageContext bc = new BeverageContext();
+
             // While the choice is not exit program
             while (choice != 6)
             {
                 switch (choice)
                 {
                     case 1:
+                        beverageCollection.PrintList();
                         break;
-
                     case 2:
+                        beverageCollection.FindById();
                         break;
-
                     case 3:
+                        beverageCollection.AddNewItem();
                         break;
-
                     case 4:
                         break;
-
                     case 5:
+                        beverageCollection.RemoveItem();
                         break;
                 }
 

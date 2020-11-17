@@ -9,6 +9,7 @@ namespace cis237_assignment5
     class UserInterface
     {
         const int MAX_MENU_CHOICES = 5;
+        BeverageContext bc = new BeverageContext();
 
         /*
         |----------------------------------------------------------------------
@@ -21,6 +22,7 @@ namespace cis237_assignment5
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Welcome to the wine program!");
+            Console.WriteLine("Beverages loaded");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
@@ -57,7 +59,7 @@ namespace cis237_assignment5
         public string GetSearchQuery()
         {
             Console.WriteLine();
-            Console.WriteLine("What would you like to search for?");
+            Console.WriteLine("Please enter primary key");
             Console.Write("> ");
             return Console.ReadLine();
         }
@@ -65,31 +67,19 @@ namespace cis237_assignment5
         // Get New Item Information From The User.
         public string[] GetNewItemInformation()
         {
+            Console.WriteLine("");
             string id = this.GetStringField("Id");
+            Console.WriteLine("");
             string name = this.GetStringField("Name");
+            Console.WriteLine("");
             string pack = this.GetStringField("Pack");
+            Console.WriteLine("");
             string price = this.GetDecimalField("Price");
+            Console.WriteLine("");
             string active = this.GetBoolField("Active");
+            Console.WriteLine("");
 
             return new string[] { id, name, pack, price, active };
-        }
-
-        // Display Import Success
-        public void DisplayImportSuccess()
-        {
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Wine List Has Been Imported Successfully");
-            Console.ForegroundColor = ConsoleColor.Gray;
-        }
-
-        // Display Import Error
-        public void DisplayImportError()
-        {
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("There was an error importing the CSV");
-            Console.ForegroundColor = ConsoleColor.Gray;
         }
 
         // Display All Items
@@ -171,7 +161,6 @@ namespace cis237_assignment5
             Console.WriteLine("3. Add new beverage");
             Console.WriteLine("4. Update beverage");
             Console.WriteLine("5. Delete beverage");
-            Console.WriteLine("6. Delete beverage");
         }
 
         // Display the Prompt
@@ -225,7 +214,7 @@ namespace cis237_assignment5
         }
 
         // Get a valid string field from the console
-        private string GetStringField(string fieldName)
+        public string GetStringField(string fieldName)
         {
             Console.WriteLine("What is the new Item's {0}", fieldName);
             string value = null;
@@ -307,7 +296,7 @@ namespace cis237_assignment5
         }
 
         // Get a string formatted as a header for items
-        private string GetItemHeader()
+        public string GetItemHeader()
         {
             return String.Format(
                 "{0,-6} {1,-55} {2,-15} {3,6} {4,-6}",
