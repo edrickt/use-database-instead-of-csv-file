@@ -8,7 +8,7 @@ namespace cis237_assignment5
 {
     class UserInterface
     {
-        const int MAX_MENU_CHOICES = 5;
+        const int MAX_MENU_CHOICES = 6;
         BeverageContext bc = new BeverageContext();
 
         /*
@@ -67,7 +67,7 @@ namespace cis237_assignment5
         // Get New Item Information From The User.
         public string[] GetNewItemInformation()
         {
-            Console.WriteLine("");
+            Console.Clear();
             string id = this.GetStringField("Id");
             Console.WriteLine("");
             string name = this.GetStringField("Name");
@@ -83,31 +83,21 @@ namespace cis237_assignment5
         }
 
         // Display All Items
-        public void DisplayAllItems(string allItemsOutput)
+        public void DisplayAllItems()
         {
-            Console.WriteLine();
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Printing List");
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(this.GetItemHeader());
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine(allItemsOutput);
-        }
-
-        // Display All Items Error
-        public void DisplayAllItemsError()
-        {
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("There are no items in the list to print");
-            Console.ForegroundColor = ConsoleColor.Gray;
         }
 
         // Display Item Removed Success
         public void DisplayItemRemoved()
         {
-            Console.WriteLine();
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Item removed!");
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -116,7 +106,7 @@ namespace cis237_assignment5
         // Display Item Found Error
         public void DisplayItemFoundError()
         {
-            Console.WriteLine();
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("A Match was not found");
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -125,7 +115,7 @@ namespace cis237_assignment5
         // Display Add Wine Item Success
         public void DisplayAddWineItemSuccess()
         {
-            Console.WriteLine();
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("The Item was successfully added");
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -133,7 +123,7 @@ namespace cis237_assignment5
 
         public void DisplayUpdateWineItemSuccess()
         {
-            Console.WriteLine();
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("The Item was successfully updated");
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -142,7 +132,7 @@ namespace cis237_assignment5
         // Display Item Already Exists Error
         public void DisplayItemAlreadyExistsError()
         {
-            Console.WriteLine();
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("An Item With That Id Already Exists");
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -165,6 +155,7 @@ namespace cis237_assignment5
             Console.WriteLine("3. Add new beverage");
             Console.WriteLine("4. Update beverage");
             Console.WriteLine("5. Delete beverage");
+            Console.WriteLine("6. EXIT");
         }
 
         // Display the Prompt
@@ -220,6 +211,7 @@ namespace cis237_assignment5
         // Get a valid string field from the console
         public string GetStringField(string fieldName)
         {
+            Console.Clear();
             Console.WriteLine("New {0}:", fieldName);
             Console.Write("> ");
             string value = null;
@@ -247,6 +239,7 @@ namespace cis237_assignment5
         // Get a valid decimal field from the console
         public string GetDecimalField(string fieldName)
         {
+            Console.Clear();
             Console.WriteLine("New {0}:", fieldName);
             decimal value = 0;
             bool valid = false;
@@ -274,6 +267,7 @@ namespace cis237_assignment5
         // Get a valid bool field from the console
         public string GetBoolField(string fieldName)
         {
+            Console.Clear();
             Console.WriteLine("Should the Item be {0} (y/n)", fieldName);
             string input = null;
             bool value = false;
@@ -313,17 +307,18 @@ namespace cis237_assignment5
             ) +
             Environment.NewLine +
             String.Format(
-                "{0,-6} {1,-55} {2,-15} {3,6} {4,-6}",
+                "{0,-6} {1,-55} {2,-15} {3,5} {4,-6}",
                 new String('-', 6),
                 new String('-', 40),
-                new String('-', 15),
-                new String('-', 6),
-                new String('-', 5)
+                new String('-', 16),
+                new String('-', 5),
+                new String('-', 6)
             );
         }
         public int WhichToUpdate()
         {
-            Console.WriteLine("\nWhich property would you like to update?");
+            Console.Clear();
+            Console.WriteLine("Which property would you like to update?");
             Console.WriteLine("1. Name");
             Console.WriteLine("2. Pack");
             Console.WriteLine("3. Price");

@@ -22,7 +22,7 @@ namespace cis237_assignment5
             UserInterface userInterface = new UserInterface();
 
             // Create an instance of the BeverageCollection class
-            BeverageCollection beverageCollection = new BeverageCollection(beverageCollectionSize);
+            BeverageCollection beverageCollection = new BeverageCollection();
 
             // Display the Welcome Message to the user
             userInterface.DisplayWelcomeGreeting();
@@ -52,6 +52,9 @@ namespace cis237_assignment5
                         break;
                     case 5:
                         beverageCollection.RemoveItem();
+                        break;
+                    case 6:
+                        //Environment.Exit(0);
                         break;
                 }
 

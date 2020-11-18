@@ -10,25 +10,17 @@ namespace cis237_assignment5
     class BeverageCollection
     {
         // Private Variables
-        private Beverage[] beverages;
-        private int beverageLength;
-
         UserInterface ui = new UserInterface();
 
         BeverageContext bc = new BeverageContext();
 
         // Constructor. Must pass the size of the collection.
-        public BeverageCollection(int size)
-        {
-            this.beverages = new Beverage[size];
-            this.beverageLength = 0;
-        }
+        public BeverageCollection() { }
 
         // ToString override method to convert the collection to a string
         public void PrintList()
         {
-            Console.WriteLine("\nPRINTING LIST OF BEVERAGE\n");
-            Console.WriteLine(ui.GetItemHeader());
+            ui.DisplayAllItems();
             foreach (Beverage bev in bc.Beverages)
             {
                 Console.WriteLine(GetPrintString(bev));
@@ -40,8 +32,11 @@ namespace cis237_assignment5
             Beverage bevToFind = bc.Beverages.Find(ui.GetSearchQuery());
             if (bevToFind != null)
             {
-                Console.WriteLine("\n" + ui.GetItemHeader() + "\n" +
-                              GetPrintString(bevToFind));
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(ui.GetItemHeader());
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine(GetPrintString(bevToFind));
             }
             else
             {
@@ -131,7 +126,7 @@ namespace cis237_assignment5
 
         public string GetPrintString(Beverage b)
         {
-            return $"{b.id} {b.name} {b.pack} {b.price} {b.active}";
+            return b.id.PadRight(6) + b.name.PadRight(5) + b.pack.PadRight(18) + b.price.ToString("C").PadRight(7) + b.active.ToString().PadRight(7); ;
         }
     }
 }
