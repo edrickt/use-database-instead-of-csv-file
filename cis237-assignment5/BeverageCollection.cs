@@ -38,8 +38,15 @@ namespace cis237_assignment5
         public void FindById()
         {
             Beverage bevToFind = bc.Beverages.Find(ui.GetSearchQuery());
-            Console.WriteLine("\n" + ui.GetItemHeader() + "\n" +
+            if (bevToFind != null)
+            {
+                Console.WriteLine("\n" + ui.GetItemHeader() + "\n" +
                               GetPrintString(bevToFind));
+            }
+            else
+            {
+                ui.DisplayItemFoundError();
+            }
         }
 
         public void AddNewItem()
@@ -72,6 +79,49 @@ namespace cis237_assignment5
             {
                 bc.Beverages.Remove(bevToDelete);
                 bc.SaveChanges();
+                ui.DisplayItemRemoved();
+            }
+            else
+            {
+                ui.DisplayItemFoundError();
+            }
+        }
+
+        public void UpdateItem()
+        {
+            Beverage bevToUpdate = bc.Beverages.Find(ui.GetSearchQuery());
+            if (bevToUpdate != null)
+            {
+                int choice = ui.WhichToUpdate();
+                switch (choice)
+                {
+                    case 1:
+                        Console.WriteLine("");
+                        bevToUpdate.name = ui.GetStringField("name");
+                        bc.SaveChanges();
+                        ui.DisplayUpdateWineItemSuccess();
+                        break;
+                    case 2:
+                        Console.WriteLine("");
+                        bevToUpdate.pack = ui.GetStringField("package detail");
+                        bc.SaveChanges();
+                        ui.DisplayUpdateWineItemSuccess();
+                        break;
+                    case 3:
+                        Console.WriteLine("");
+                        bevToUpdate.price = Convert.ToDecimal(ui.GetDecimalField("price"));
+                        bc.SaveChanges();
+                        ui.DisplayUpdateWineItemSuccess();
+                        break;
+                    case 4:
+                        Console.WriteLine("");
+                        bevToUpdate.active = Boolean.Parse(ui.GetBoolField("active"));
+                        bc.SaveChanges();
+                        ui.DisplayUpdateWineItemSuccess();
+                        break;
+                    default:
+                        break;
+                }
             }
             else
             {

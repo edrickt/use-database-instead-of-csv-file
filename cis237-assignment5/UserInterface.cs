@@ -104,17 +104,13 @@ namespace cis237_assignment5
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
-        // Display Item Found Success
-        public void DisplayItemFound(string itemInformation)
+        // Display Item Removed Success
+        public void DisplayItemRemoved()
         {
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Item Found!");
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(this.GetItemHeader());
+            Console.WriteLine("Item removed!");
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine(itemInformation);
         }
 
         // Display Item Found Error
@@ -132,6 +128,14 @@ namespace cis237_assignment5
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("The Item was successfully added");
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
+        public void DisplayUpdateWineItemSuccess()
+        {
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("The Item was successfully updated");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
@@ -216,7 +220,8 @@ namespace cis237_assignment5
         // Get a valid string field from the console
         public string GetStringField(string fieldName)
         {
-            Console.WriteLine("What is the new Item's {0}", fieldName);
+            Console.WriteLine("New {0}:", fieldName);
+            Console.Write("> ");
             string value = null;
             bool valid = false;
             while (!valid)
@@ -232,7 +237,7 @@ namespace cis237_assignment5
                     Console.WriteLine("You must provide a value.");
                     Console.ForegroundColor = ConsoleColor.Gray;
                     Console.WriteLine();
-                    Console.WriteLine("What is the new Item's {0}", fieldName);
+                    Console.WriteLine("New {0}:", fieldName);
                     Console.Write("> ");
                 }
             }
@@ -240,9 +245,9 @@ namespace cis237_assignment5
         }
 
         // Get a valid decimal field from the console
-        private string GetDecimalField(string fieldName)
+        public string GetDecimalField(string fieldName)
         {
-            Console.WriteLine("What is the new Item's {0}", fieldName);
+            Console.WriteLine("New {0}:", fieldName);
             decimal value = 0;
             bool valid = false;
             while (!valid)
@@ -258,7 +263,7 @@ namespace cis237_assignment5
                     Console.WriteLine("That is not a valid Decimal. Please enter a valid Decimal.");
                     Console.ForegroundColor = ConsoleColor.Gray;
                     Console.WriteLine();
-                    Console.WriteLine("What is the new Item's {0}", fieldName);
+                    Console.WriteLine("New {0}:", fieldName);
                     Console.Write("> ");
                 }
             }
@@ -267,7 +272,7 @@ namespace cis237_assignment5
         }
 
         // Get a valid bool field from the console
-        private string GetBoolField(string fieldName)
+        public string GetBoolField(string fieldName)
         {
             Console.WriteLine("Should the Item be {0} (y/n)", fieldName);
             string input = null;
@@ -315,6 +320,32 @@ namespace cis237_assignment5
                 new String('-', 6),
                 new String('-', 5)
             );
+        }
+        public int WhichToUpdate()
+        {
+            Console.WriteLine("\nWhich property would you like to update?");
+            Console.WriteLine("1. Name");
+            Console.WriteLine("2. Pack");
+            Console.WriteLine("3. Price");
+            Console.WriteLine("4. Active");
+            Console.WriteLine("5. EXIT");
+            Console.Write("\n> ");
+            string choice = Console.ReadLine();
+            int choiceInt = 5;
+            bool correct = false;
+            while (correct == false)
+            {
+                if (int.TryParse(choice, out choiceInt))
+                {
+                    correct = true;
+                    return choiceInt;
+                }
+                else
+                {
+                    Console.WriteLine("PLEASE ENTER VALID OPTION");
+                }
+            }
+            return choiceInt;
         }
     }
 }

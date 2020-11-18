@@ -48,6 +48,7 @@ namespace cis237_assignment5
                         beverageCollection.AddNewItem();
                         break;
                     case 4:
+                        beverageCollection.UpdateItem();
                         break;
                     case 5:
                         beverageCollection.RemoveItem();
