@@ -1,3 +1,6 @@
+// Edrick Tamayo
+// 3:30 Thursday
+// 20 November 2020
 namespace cis237_assignment5
 {
     using System;
@@ -5,7 +8,8 @@ namespace cis237_assignment5
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-
+    
+    // Properties for beverage, used instead of the beverage class
     public partial class Beverage
     {
         [StringLength(10)]

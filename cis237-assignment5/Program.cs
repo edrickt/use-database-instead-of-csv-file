@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Edrick Tamayo
+// 3:30 Thursday
+// 20 November 2020
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,23 +41,27 @@ namespace cis237_assignment5
             {
                 switch (choice)
                 {
+                    // Print list
                     case 1:
                         beverageCollection.PrintList();
                         break;
+                    // Find beverage by ID
                     case 2:
                         beverageCollection.FindById();
                         break;
+                    // Add new item
                     case 3:
                         beverageCollection.AddNewItem();
                         break;
+                    // Update existing item
                     case 4:
                         beverageCollection.UpdateItem();
                         break;
+                    // Remove beverage
                     case 5:
                         beverageCollection.RemoveItem();
                         break;
                     case 6:
-                        //Environment.Exit(0);
                         break;
                 }
 

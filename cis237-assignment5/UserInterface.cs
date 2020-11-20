@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Edrick Tamayo
+// 3:30 Thursday
+// 20 November 2020
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -121,6 +124,7 @@ namespace cis237_assignment5
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
+        // Display update wine item
         public void DisplayUpdateWineItemSuccess()
         {
             Console.Clear();
@@ -315,6 +319,8 @@ namespace cis237_assignment5
                 new String('-', 6)
             );
         }
+
+        // User interface to update the beverage
         public int WhichToUpdate()
         {
             Console.Clear();

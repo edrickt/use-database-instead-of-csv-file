@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Edrick Tamayo
+// 3:30 Thursday
+// 20 November 2020
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +20,7 @@ namespace cis237_assignment5
         // Constructor. Must pass the size of the collection.
         public BeverageCollection() { }
 
-        // ToString override method to convert the collection to a string
+        // Prints list by getting beverage from database using foreach loop
         public void PrintList()
         {
             ui.DisplayAllItems();
@@ -27,6 +30,7 @@ namespace cis237_assignment5
             }
         }
 
+        // Find beverage by ID
         public void FindById()
         {
             Beverage bevToFind = bc.Beverages.Find(ui.GetSearchQuery());
@@ -44,6 +48,7 @@ namespace cis237_assignment5
             }
         }
 
+        // Add new item using method in userInterface class
         public void AddNewItem()
         {
             Beverage bevToAdd = new Beverage();
@@ -54,6 +59,7 @@ namespace cis237_assignment5
             bevToAdd.price = Int32.Parse(bevInfo[3]);
             bevToAdd.active = Boolean.Parse(bevInfo[4]);
 
+            // Try catch to handle exception if it already exists
             try
             {
                 bc.Beverages.Add(bevToAdd);
@@ -67,6 +73,7 @@ namespace cis237_assignment5
             }
         }
 
+        // Remove item from database
         public void RemoveItem()
         {
             Beverage bevToDelete = bc.Beverages.Find(ui.GetSearchQuery());
@@ -82,6 +89,7 @@ namespace cis237_assignment5
             }
         }
 
+        // Update existing item's property, gives user a choice
         public void UpdateItem()
         {
             Beverage bevToUpdate = bc.Beverages.Find(ui.GetSearchQuery());
@@ -124,9 +132,10 @@ namespace cis237_assignment5
             }
         }
 
+        // Gets print string for the beverage, used to output beverage
         public string GetPrintString(Beverage b)
         {
-            return b.id.PadRight(6) + b.name.PadRight(5) + b.pack.PadRight(18) + b.price.ToString("C").PadRight(7) + b.active.ToString().PadRight(7); ;
+            return b.id.PadRight(6) + b.name.PadRight(5) + b.pack.PadRight(18) + b.price.ToString("C").PadRight(7) + b.active.ToString().PadRight(7);
         }
     }
 }

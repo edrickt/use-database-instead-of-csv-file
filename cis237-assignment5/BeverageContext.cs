@@ -1,3 +1,6 @@
+// Edrick Tamayo
+// 3:30 Thursday
+// 20 November 2020
 namespace cis237_assignment5
 {
     using System;
@@ -5,6 +8,7 @@ namespace cis237_assignment5
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
+    // Created when connecting to database and using database
     public partial class BeverageContext : DbContext
     {
         public BeverageContext()
